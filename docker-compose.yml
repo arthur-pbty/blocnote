@@ -1,27 +1,11 @@
 services:
-  blocnote:
-    image: node:22-alpine
-    container_name: blocnote
-    working_dir: /app
-    volumes:
-      - .:/app
-      - node_modules:/app/node_modules
-      - nextjs_cache:/app/.next
+  web:
+    build: .
     ports:
-      - "3016:3000"
+      - "3000:3000"
+    volumes:
+      - ./:/app
+      - /app/node_modules
     environment:
-      - NODE_ENV=production
-      - NEXT_TELEMETRY_DISABLED=1
-      - HOSTNAME=0.0.0.0
-    command: sh -c "npm ci --include=dev && npm run build && npm start"
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 60s
-
-volumes:
-  node_modules:
-  nextjs_cache:
+      - NODE_ENV=development
+    command: npm run dev
