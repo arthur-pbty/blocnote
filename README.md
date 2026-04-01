@@ -61,11 +61,3 @@ Un environnement Docker est disponible via [docker-compose.yml](docker-compose.y
 ```bash
 docker compose up -d
 ```
-
-## Publication GitHub
-
-Points verifies avant publication:
-
-- Secrets et fichiers sensibles non exposes
-- Fichiers d'environnement ignores par [.gitignore](.gitignore)
-- Build et lint valides
