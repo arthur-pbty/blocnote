@@ -1,10 +1,11 @@
 # BlocNote
 
-Bloc-notes Markdown en ligne, rapide et sans inscription.
+Bloc-notes Markdown en ligne, rapide, sans inscription et pensé pour l'auto-hébergement.
 
-## Site public
+## Site
 
 - Production: https://blocnote.arthurp.fr
+- Contact: https://contact.arthurp.fr ou contact@arthurp.fr
 
 ## Stack technique
 
@@ -13,24 +14,24 @@ Bloc-notes Markdown en ligne, rapide et sans inscription.
 - TypeScript
 - ESLint
 
-## Fonctionnalites
+## Fonctionnalités
 
-- Edition Markdown avec apercu en temps reel
+- Édition Markdown avec aperçu en temps réel
 - Sauvegarde automatique des notes
 - Recherche et tri des notes
-- Notes epinglees
+- Notes épinglées
 - Export d'une note
 - Mode clair / sombre
 - Raccourcis clavier
 
 ## Lancement local
 
-Pre-requis:
+Prérequis:
 
 - Node.js 22+
 - npm
 
-Installation et demarrage:
+Installation et démarrage:
 
 ```bash
 npm ci
@@ -39,25 +40,18 @@ npm run dev
 
 Application disponible sur http://localhost:3000
 
-## Scripts
+## Docker
+
+Deux services sont fournis via [docker-compose.yml](docker-compose.yml):
+
+- blocnote-dev pour le développement sur le port 3000
+- blocnote-prod pour l'exécution de production sur le port 3016
 
 ```bash
-npm run dev    # mode developpement
-npm run lint   # verification lint
-npm run build  # build production
-npm run start  # lancer le build production
+docker compose --profile dev up
+docker compose --profile prod up -d
 ```
 
 ## Variables d'environnement
 
-Le projet peut utiliser:
-
 - NEXT_PUBLIC_SITE_URL (exemple: https://blocnote.arthurp.fr)
-
-## Docker
-
-Un environnement Docker est disponible via [docker-compose.yml](docker-compose.yml).
-
-```bash
-docker compose up -d
-```
